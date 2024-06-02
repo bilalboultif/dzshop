@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tron Style Background with Curved Edges</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background-color: #272727
+; /* Dark background */
+    }    .line1, .line2 {
+      position: relative;
+      padding: 20px;
+      color: white;
+    }    .line1::before, .line2::before,
+    .line1::after, .line2::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      right: 0;
+      height: 20px; /* Adjust this value to change the curvature */
+      background-color: transparent;
+    }    .line1::before, .line2::before {
+      top: 0;
+      background: linear-gradient(to bottom right, transparent 49%, orange 50%);
+    }    .line1::after, .line2::after {
+      bottom: 0;
+      background: linear-gradient(to top right, transparent 49%, orange 50%);
+    }    .line2::before {
+      background: linear-gradient(to bottom right, transparent 49%, white 50%);
+    }    .line2::after {
+      background: linear-gradient(to top right, transparent 49%, white 50%);
+    }    .container {
+      max-width: 800px;
+      margin: 50px auto;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="line1">
+      <h2>Page 1</h2>
+      <p>This is the content of Page 1. You can put whatever you want here.</p>
+    </div>
+    <div class="line2">
+      <h2>Page 2</h2>
+      <p>This is the content of Page 2. You can put whatever you want here.</p>
+    </div>
+  </div>
+</body>
+</html>

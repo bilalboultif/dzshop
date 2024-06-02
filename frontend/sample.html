@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Transparent Navbar</title>
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    background-color: orange; /* Set the background color of the body */
+  }
+
+  .navbar {
+    background: linear-gradient(to top, rgba(234, 81, 26, 0), rgba(234, 81, 26, 1)); /* Gradient from transparent to your color */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 0;
+    z-index: 1000; /* Ensures the navbar stays on top of other content */
+    transition: background 0.3s; /* Smooth transition effect */
+  }
+
+  /* Optional: Style for the navbar links */
+  .navbar a {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+  }
+</style>
+</head>
+<body>
+
+<div class="navbar">
+  <a href="#">Home</a>
+  <a href="#">About</a>
+  <a href="#">Services</a>
+  <a href="#">Contact</a>
+</div>
+
+<!-- Add some content below the navbar to demonstrate the effect -->
+<div style="height: 2000px; background-color: #f0f0f0;">
+  Scroll down to see the effect
+</div>
+
+<script>
+  // JavaScript to change navbar background opacity on scroll
+  window.addEventListener('scroll', function() {
+    var navbar = document.querySelector('.navbar');
+    var body = document.body;
+    var scrollPosition = window.scrollY;
+    var windowHeight = window.innerHeight;
+    var bodyHeight = body.scrollHeight;
+    var bottomOpacity = 1 - (scrollPosition + windowHeight) / bodyHeight; // Calculate opacity based on scroll position
+
+    if (bottomOpacity < 0) {
+      bottomOpacity = 0; // Ensure opacity doesn't go below 0
+    }
+
+    navbar.style.background = "linear-gradient(to top, rgba(234, 81, 26, " + bottomOpacity + "), rgba(234, 81, 26, 1))";
+  });
+</script>
+
+</body>
+</html>
